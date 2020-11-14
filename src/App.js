@@ -16,7 +16,7 @@ const Page =()=>{
   return(
    <BrowserRouter>
     <Template>
-
+ 
     <Header />
     
     <Routes />
