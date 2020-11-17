@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 export const PageArea = Styled.div`
 form{
 
-    background-color:rgba(0, 0, 0, 0.4);
+    background-color:rgba(0, 0, 0, 0.1);
     border-radius:20px;
     padding:20px;
     width:30vw;
@@ -50,12 +50,13 @@ form{
         margin:5px;
     }
     button{
-        font-size:15px;
-        width:150px;
+        font-size:17px;
+        width:170px;
+        height:30px;
         border-radius:5px;
-        box-shadow:1px 1px 3px #5f7fd8;
         font-weight:bold;
-        color:#5f7fd8;
+        background-color:#5f7fd8;
+        color:#FFF;
    }
 }
 }

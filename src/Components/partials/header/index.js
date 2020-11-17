@@ -1,11 +1,25 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import {Link} from 'react-router-dom';
 import { HeaderArea} from './styled';
-import { isLogged } from '../../../helpers/AuthHandler';
+import { isLogged, doLogout } from '../../../helpers/AuthHandler';
 import img from './img/logo.png'
+import {useSelector, useDispatch} from 'react-redux'
+
 
 const Header = () =>{
+    
     const logged = isLogged();
+    const name = useSelector(state=>state.user.name);
+    const dispatch = useDispatch();
+
+    const handleLogout =()=>{
+        doLogout();
+        dispatch({
+            type:'SET_NAME',
+            payload:{name:''}
+        })
+        window.location.href = "/";
+    }
 
     return(
         <HeaderArea>
@@ -22,11 +36,11 @@ const Header = () =>{
                     {logged && 
                         <>
                         <li>
-                            <Link to="/my-account">Minha conta</Link>
+                            <Link to={'/my-account/'+name}>Minha conta</Link>
                         </li>
 
                         <li>
-                            <Link to="/logout">Sair</Link>
+                            <button onClick={handleLogout}>Sair</button>
                         </li>
                    
                         <li>

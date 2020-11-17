@@ -1,21 +1,23 @@
+import { Switch } from 'react-router-dom';
+
 const initialState = {
-    email:'paiivayago@gmail.com',
     name:'Yago Paiva de Souza',
+    email:'',
 }
 
-
-export default(state = initialState, action)=>{
-
-        switch (action.type){
-
-            case 'SET_EMAIL':    
+ const UserReducers = (state = initialState, action)=>{
+    
+    switch (action.type){
+    
+        case 'SET_NAME':    
             return{...state,
-                    email:action.payload.email
+                name:action.payload.name,
                 };
             break;
 
         }
 
-
     return state;
 }
+
+export default UserReducers;
