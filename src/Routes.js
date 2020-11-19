@@ -1,30 +1,39 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
-
+import {Switch } from 'react-router-dom'
+import RouteHandler from './Components/RouterHandler';
 import Home from './pages/Home'
 import About from './pages/About'
 import SignIn from './pages/SingIn'
+import SingUp from './pages/SingUp'
 import NotFound from './pages/NotFound'
 
 
 
 export default ()=>{
     return <Switch>
-        <Route exact path="/">
+        <RouteHandler exact path="/">
             <Home />
-        </Route>
+        </RouteHandler>
 
-        <Route exact path="/About">
+        <RouteHandler exact path="/About">
             <About />
-        </Route>
+        </RouteHandler>
 
-        <Route exact path="/Signin">
+        <RouteHandler private exact path="/Signin">
             <SignIn /> 
-        </Route>
+        </RouteHandler>
 
-        <Route>
+        <RouteHandler private exact path="/signup">
+            <SingUp />
+        </RouteHandler>
+
+        <RouteHandler exact path="/post-an-ad">
+            <About />
+        </RouteHandler>
+
+        <RouteHandler>
             <NotFound />
-        </Route>
+        </RouteHandler>
 
     </Switch>
 }

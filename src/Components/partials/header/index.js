@@ -16,7 +16,7 @@ const Header = () =>{
         doLogout();
         dispatch({
             type:'SET_NAME',
-            payload:{name:''}
+            payload:{name:'', id:''}
         })
         window.location.href = "/";
     }
@@ -36,7 +36,13 @@ const Header = () =>{
                     {logged && 
                         <>
                         <li>
-                            <Link to={'/my-account/'+name}>Minha conta</Link>
+                            <h3>Bem vindo: {name}</h3>
+                        </li>
+                        <li>
+                            <Link to='/'>Inicio</Link>
+                        </li>
+                        <li>
+                            <Link to='/my-account/'>Minha conta</Link>
                         </li>
 
                         <li>

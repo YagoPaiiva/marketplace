@@ -49,7 +49,12 @@ nav{
        margin-left:20px;
        margin-right:20px;
        
+    h3{
+        width:400px;
+        font-style:italic;
+    }
     a, button{
+        
         border:0;
         background:none;
         outline:none;

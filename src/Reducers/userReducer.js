@@ -1,8 +1,8 @@
 import { Switch } from 'react-router-dom';
 
 const initialState = {
-    name:'Yago Paiva de Souza',
-    email:'',
+    name:'',
+    id:'',
 }
 
  const UserReducers = (state = initialState, action)=>{
@@ -12,7 +12,8 @@ const initialState = {
         case 'SET_NAME':    
             return{...state,
                 name:action.payload.name,
-                };
+                id:action.payload.id,
+            };
             break;
 
         }

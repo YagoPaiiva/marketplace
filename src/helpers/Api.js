@@ -12,7 +12,7 @@ const apiFetchPost = async (endpoint, body) =>{
         }
     }
 
-    const res = await fetch(BASEAPI+endpoint, {
+const res = await fetch(BASEAPI+endpoint, {
         method:'POST',
         headers:{
             'Accept': 'application/json',
@@ -20,6 +20,7 @@ const apiFetchPost = async (endpoint, body) =>{
         },
         body:JSON.stringify(body),
     });
+
 
     const json = await res.json();
 
@@ -39,6 +40,8 @@ const apiFetchGet = async (endpoint, body = [])=>{
             body.token = token;
         }
     }
+
+
     const res = await fetch(`${BASEAPI+endpoint}?${qs.stringify(body)}`);
     const json = await res.json();
 
@@ -55,14 +58,33 @@ const API = {
     login:async(Username, password) =>{
 
     const json = await apiFetchPost(
-            '/New',
+            '/signin',
             {Username, password}
             );
             return json;
     },
 
-    Username:()=>{
-        return API.login.json;
+    register:async(Fullname, Username, Email, FullnameMother, Password)=>{
+        const json = await apiFetchPost(
+            '/create',
+            {
+                Fullname,
+                Username,
+                Email,
+                FullnameMother,
+                Password,
+            })
+                return json
+        },
+
+    getCategories:async()=>{
+        let json = await apiFetchGet(
+            '/Categories'
+            )
+        
+        json= json.map(index=>index.Category);
+
+        return json; 
     }
 
 };

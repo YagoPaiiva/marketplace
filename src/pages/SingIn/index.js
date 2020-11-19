@@ -4,6 +4,7 @@ import { PageContainer, PageTitle, ErrorMessage} from '../../Components/MainComp
 import UseAPI from '../../helpers/Api';
 import { useDispatch, useSelector } from 'react-redux';
 import {doLogin} from '../../helpers/AuthHandler';
+import { set } from 'js-cookie';
 
 const Page =()=>{
 
@@ -22,8 +23,8 @@ const Page =()=>{
     
         handleSubmit:async(event)=>{
             event.preventDefault();
-            
             setDisable(true);
+            setError('');
 
             const json = await api.login(username, password);     
 
@@ -32,9 +33,14 @@ const Page =()=>{
             }else{
                 doLogin(json.token, rememberPassword);
                 window.location.href=`/`;
+
                 events.dispatch({
                     type:'SET_NAME',
-                    payload:{name:json.slug},
+                    payload:{
+                        name:json.Fullname,
+                        id:json.id
+                    },
+                
                 });
             }
             setDisable(false);        
@@ -43,7 +49,7 @@ const Page =()=>{
   
     return(
         <PageContainer>
-            <PageTitle>Tela de Login</PageTitle>
+            <PageTitle>Login</PageTitle>
                 <PageArea>
 
                     {error &&
@@ -72,7 +78,7 @@ const Page =()=>{
                 type="password" 
                 disabled={disable}
                 value={password}
-                onChange={estate=>setPassword(estate.target.value)}
+                onChange={state=>setPassword(state.target.value)}
                 required
                 >
 
