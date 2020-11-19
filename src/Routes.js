@@ -23,7 +23,7 @@ export default ()=>{
             <SignIn /> 
         </RouteHandler>
 
-        <RouteHandler private exact path="/signup">
+        <RouteHandler priva exact path="/signup">
             <SingUp />
         </RouteHandler>
 
