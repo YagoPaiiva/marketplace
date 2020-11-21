@@ -48,6 +48,7 @@ nav{
     li{
        margin-left:20px;
        margin-right:20px;
+       text-shadow:1px 1px 1px #CCC;
        
     h3{
         width:400px;
@@ -73,6 +74,7 @@ nav{
         background-color:#5F7fD8;
         border-radius:7px;
         color:#FFF;
+        text-shadow:1px 1px 1px #000;
         padding:5px 10px;
             }
 

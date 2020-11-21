@@ -7,17 +7,13 @@ form{
     border-radius:20px;
     padding:20px;
     width:30vw;
-    margin:4px auto 20px;
-    justify-content:center;
-    text-align:center;    
+    margin:4px auto 20px;    
     box-shadow: 0px 0px 3px #5f7fd8;
+ 
     
     .area{
         display:flex;
         padding:10px;
-        justify-content:center;
-        text-align:center;
-        max-widht:500px;
         width:fit-content;
         margin:auto;
         color:#000;
@@ -29,14 +25,12 @@ form{
     }
 
     .area--input{
-        
         flex:1;
     input{
 
         outline:0;
         border-radius:5px;
         font-size:16px;
-        
         
         &:focus{
             border:2px solid #5f7fd8;

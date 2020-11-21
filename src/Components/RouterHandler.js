@@ -8,7 +8,8 @@ export default({children, ...rest})=>{
     let logged = isLogged();
 
     let authorize = (rest.private && logged) ? false : true; 
-    
+    let Logged  = (rest.isLogged && logged) ? false : true;
+
     return(
         <Route
             {...rest}
@@ -17,6 +18,9 @@ export default({children, ...rest})=>{
             authorize? children: <Redirect to="/" />
         } 
 
+        render={()=>
+            Logged?children:<Redirect to="/signin" />
+        }
         />
     );
 }

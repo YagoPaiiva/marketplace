@@ -29,9 +29,6 @@ const res = await fetch(BASEAPI+endpoint, {
         }
     return json;
 }
-
-
-
 const apiFetchGet = async (endpoint, body = [])=>{
   
     if(!body.token){
@@ -51,11 +48,32 @@ const apiFetchGet = async (endpoint, body = [])=>{
     }
 
     return json;
-};   
+}   
+const apiFetchFile = async (endpoint, body =[])=>{
+    
+    if(!body.token){
+        let token = Cookies.get('token');
+        if(token){
+            body.token = token;
+        }
+    }
+
+const res = await fetch(BASEAPI+endpoint, {
+        method:'POST',
+        body
+    });
+    
+    const json = await res.json();
+    
+    if(json.notallowed){
+            return {error: 'Usuario ou senha invalidos'};
+        }
+    return json;
+}
 
 const API = {
 
-    login:async(Username, password) =>{
+    postLogin:async(Username, password) =>{
 
     const json = await apiFetchPost(
             '/signin',
@@ -64,9 +82,9 @@ const API = {
             return json;
     },
 
-    register:async(Fullname, Username, Email, FullnameMother, Password)=>{
+    postAccount:async(Fullname, Username, Email, FullnameMother, Password)=>{
         const json = await apiFetchPost(
-            '/create',
+            '/createAccount',
             {
                 Fullname,
                 Username,
@@ -78,13 +96,26 @@ const API = {
         },
 
     getCategories:async()=>{
-        let json = await apiFetchGet(
-            '/Categories'
+        const json = await apiFetchGet(
+            '/getCategories'
             )
-        
-        json= json.map(index=>index.Category);
-
         return json; 
+    },
+    getAds:async(options)=>{
+
+        const json =await apiFetchGet(
+            '/getNews',
+            options,
+        );
+
+        return json;
+    },
+    postNews:async(formData)=>{
+        const json = await apiFetchFile(
+            '/createNews',
+            formData
+        );
+        return json;
     }
 
 };

@@ -30,38 +30,38 @@ form{
     .area--input{
         flex:1;
         margin:auto;
+    
+        select{
+            width:300px;
+            font-size:16px;
+        }
+        textarea{
+            width:300px;
+            height:200px;
+            font-size:16px;
+            resize:none;
+        }
         input{
-
-        outline:0;
-        width:300px;
-        border-radius:5px;
-        font-size:16px;
+            outline:0;
+            width:300px;
+            border-radius:5px;
+            font-size:16px;
         
         &:focus{
             border:2px solid #5f7fd8;
             transition:all ease .8s;
         }
     }
-    } 
-    [type=checkbox]{
-        max-width: 20px;
-        min-width: 20px;
-        min-width: 15px;
-        min-height: 15px;
-        margin:5px;
-    }
-    #bt{
-        width:fit-content;
-    }
     button{
         font-size:17px;
-        width:300px;
+        width:170px;
         height:30px;
         border-radius:5px;
         font-weight:bold;
         background-color:#5f7fd8;
         color:#FFF;
    }
+    } 
 }
 }
 `;  

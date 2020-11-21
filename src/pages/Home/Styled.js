@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Styled from  'styled-components';
 
 export const SearchArea = styled.div`
 
@@ -34,21 +33,68 @@ export const SearchArea = styled.div`
                 padding:0 10px;
             }
             select{
-                width:100px;
+                width:240px;
             }
             button{
-                background-color:green;
+                background-color:#53c553;
                 font-size:16px;
-                border-radius:4px;
+                font-weight:bold;
+                border-radius:8px;
                 color:#FFF;
+                text-shadow:1px 1px 1px #000;
                 height:40px;
                 padding:0 20px;
                 cursor:pointer;
+                
+            &:hover{
+                box-shadow:2px 2px 2px #000;
+                background-color:#00f500;
+            }
             }
         }
     }
+    .categoryList{
+        
+        display:flex;
+        flex-wrap:wrap;
+       margin-top:20px;
+ 
+    .categoryItem{
+
+        width:23%;
+        display:flex;
+        text-decoration:none;
+        height:50px;
+        margin:10px;
+        align-items:center;
+        border:2px solid #666666;
+        border-radius:10px;
+        box-shadow:5px 5px 5px #000;
+        transition: all .2s linear;
+
+        p{
+            display: flex;
+            font-size:16px;
+            color:#000;
+            font-weight:bold;
+            width:105%;
+            height:105%;
+            justify-content:center;
+            align-items: center;
+            
+        &:hover{
+            color:#3a3636;
+            text-shadow: 5px 5px 5px #5f7fd8 ;
+        }
+        }
+        &:hover{
+            box-shadow:5px 5px 5px #1a3a94;
+            border:5px solid #5f7fd8;
+        }
+    }
+}
 
 `;
 
-export const PageArea = Styled.div`
+export const PageArea = styled.div`
 `;

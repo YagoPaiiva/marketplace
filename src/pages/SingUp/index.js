@@ -34,7 +34,7 @@ const Page =()=>{
                 return;
             }
 
-            const json = await api.register(fullname, username, email, fullnameMother, password);     
+            const json = await api.postAccount(fullname, username, email, fullnameMother, password);     
 
             if(json.error){
                 setError(json.error);

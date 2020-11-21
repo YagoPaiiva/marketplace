@@ -4,7 +4,6 @@ import { PageContainer, PageTitle, ErrorMessage} from '../../Components/MainComp
 import UseAPI from '../../helpers/Api';
 import { useDispatch, useSelector } from 'react-redux';
 import {doLogin} from '../../helpers/AuthHandler';
-import { set } from 'js-cookie';
 
 const Page =()=>{
 
@@ -26,7 +25,7 @@ const Page =()=>{
             setDisable(true);
             setError('');
 
-            const json = await api.login(username, password);     
+            const json = await api.postLogin(username, password);     
 
             if(json.error){
                 setError(json.error);
@@ -64,7 +63,7 @@ const Page =()=>{
                 type="text" 
                 disabled={disable}
                 value={username}
-                onChange={estate=>setUsername(estate.target.value)}
+                onChange={state=>setUsername(state.target.value)}
                 required
                 ></input>
             </div>
