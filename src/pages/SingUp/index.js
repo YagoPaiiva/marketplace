@@ -10,13 +10,12 @@ const Page =()=>{
     const api = UseAPI();
 
     const [fullname, setFullname]=useState('');
-    const [username, setUsername] = useState('');
     const [email, setEmail]=useState('');
     const [fullnameMother, setFullnameMother]=useState('');
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
-    const [disable, setDisable]=useState(false);
     const [error, setError]=useState('');
+    const [disable, setDisable]=useState(false);
 
  const events = {
      
@@ -34,7 +33,7 @@ const Page =()=>{
                 return;
             }
 
-            const json = await api.postAccount(fullname, username, email, fullnameMother, password);     
+            const json = await api.postAccount(fullname, email, fullnameMother, password);     
 
             if(json.error){
                 setError(json.error);
@@ -55,6 +54,7 @@ const Page =()=>{
             setDisable(false);        
         
         },
+    
     }
   
     return(
@@ -79,20 +79,6 @@ const Page =()=>{
                 value={fullname}
                 onChange={estate=>setFullname(estate.target.value)}
                 required        
-                ></input>
-            </div>
-        </label>
-
-        <label className="area">
-            <div className="area--title">Username</div>
-            <div className="area--input">
-                <input
-                placeholder="Digite seu Nome de Usuario"
-                type="text"
-                disabled={disable}
-                value={username}
-                onChange={state=>setUsername(state.target.value)}
-                required
                 ></input>
             </div>
         </label>
@@ -154,8 +140,7 @@ const Page =()=>{
         </label>
 
         <label className = "area">
-            <div className="area--title" id="bt"></div>
-            <div className="area--input">
+            <div className="area--input" id="buttonRegister">
                 <button disabled={disable}>Cadastrar</button>
             </div>
         </label>

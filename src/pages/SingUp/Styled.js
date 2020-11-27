@@ -23,15 +23,17 @@ form{
 
     .area--title{
         font-size:16px;
-        width:230px;
         text-align:left;
     }
 
     .area--input{
         flex:1;
         margin:auto;
+        width:100%;
+        text-align: right;
+        
         input{
-
+        
         outline:0;
         width:300px;
         border-radius:5px;
@@ -42,18 +44,8 @@ form{
             transition:all ease .8s;
         }
     }
-    } 
-    [type=checkbox]{
-        max-width: 20px;
-        min-width: 20px;
-        min-width: 15px;
-        min-height: 15px;
-        margin:5px;
-    }
-    #bt{
-        width:fit-content;
-    }
     button{
+        margin:auto;
         font-size:17px;
         width:300px;
         height:30px;
@@ -62,6 +54,11 @@ form{
         background-color:#5f7fd8;
         color:#FFF;
    }
+    }
+    
+    #buttonRegister{
+        text-align:center;
+    } 
 }
 }
 `;  

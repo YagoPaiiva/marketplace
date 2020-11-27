@@ -10,7 +10,6 @@ const Page = () => {
     const api = USEApi();
     const fileField = useRef();
     const history = useHistory();
-    const id = useSelector(state=>state.user.id);
     const [disable, setDisable]=useState('');
     const [title, setTitle]=useState('');
     const [category, setCategory]=useState([]);
@@ -34,7 +33,6 @@ const Page = () => {
         formData.append('title', title);
         formData.append('categories', categories);
         formData.append('news', news);
-        formData.append('id', id );
         
         if(fileField.current.files.length > 0){
             for(let count = 0; count < fileField.current.files.length;count++)
@@ -86,8 +84,8 @@ const Page = () => {
                         {category && category.map((value, index)=>
                             <option
                             key={index}
-                            value={value.Category}
-                            >{value.Category}</option>
+                            value={value.category}
+                            >{value.category}</option>
                         )}
                     </select>
                 </div>
@@ -115,6 +113,7 @@ const Page = () => {
                     required
                     >
                     </input>
+                    <small>Primeira foto sera a capa da Notícia</small>
                 </div>
             </label>
 

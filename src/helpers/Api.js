@@ -82,12 +82,11 @@ const API = {
             return json;
     },
 
-    postAccount:async(Fullname, Username, Email, FullnameMother, Password)=>{
+    postAccount:async(Fullname, Email, FullnameMother, Password)=>{
         const json = await apiFetchPost(
             '/createAccount',
             {
                 Fullname,
-                Username,
                 Email,
                 FullnameMother,
                 Password,
@@ -95,7 +94,7 @@ const API = {
                 return json
         },
 
-    getCategories:async()=>{
+    getCategories: async()=>{
         const json = await apiFetchGet(
             '/getCategories'
             )
@@ -107,7 +106,6 @@ const API = {
             '/getNews',
             options,
         );
-
         return json;
     },
     postNews:async(formData)=>{

@@ -77,8 +77,8 @@ export const SearchArea = styled.div`
             font-size:16px;
             color:#000;
             font-weight:bold;
-            width:105%;
-            height:105%;
+            width:100%;
+            height:120%;
             justify-content:center;
             align-items: center;
             
@@ -97,4 +97,112 @@ export const SearchArea = styled.div`
 `;
 
 export const PageArea = styled.div`
+
+    border-bottom: 1px solid #CCC;
+    padding:20px;
+   
+    form{
+        flex-wrap: wrap;
+        display:flex;
+
+    .area{
+        flex-grow:1;
+        display:flex;
+        min-width:45%;
+        max-width:45%;
+        min-height:260px;
+        text-align: center;
+        margin:10px auto 10px auto;
+        background-color:rgba(0, 0, 0, 0.3);
+        border:2px solid #CCC;
+        border-radius:5px;
+        
+
+    .area--img{
+        display:flex;
+        border-radius:10px;
+        border:3px solid rgba(95, 127, 216, 0.548);
+        
+        img{
+            border-radius:6px;
+        }       
+    }
+    
+    .area--text{
+        width:100%;
+        position:relative;
+
+        .area--title{
+            font-size:24px;
+            margin:5px auto 10px;
+            color:#5f7fd8;
+            text-shadow:1px 5px 13px #FFF;
+            font-weight:bold;
+        }
+
+        .area--news{
+            text-align: left;
+            margin-left:10px;
+            position:absolute;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-line-clamp:7;
+            -webkit-box-orient:vertical;
+
+            p{
+                text-indent:30px;
+                color:#212121;
+                font-style:italic;
+            }
+
+
+        }
+        
+        button{
+            position:absolute;
+            left:0px;
+            bottom:0;
+            font-size:14px;
+            color:#960101;
+            text-shadow:1px 1px 1px #818181;;
+            font-weight:bold;
+            border:0;
+            text-decoration:none;
+            background:none;
+            outline:0;
+            cursor:pointer;
+            margin-top:10px;
+            
+            &:hover{
+                text-shadow:-1px 1px 10px #FF0000;
+            }
+        }
+
+        small{
+            position:absolute;
+            right:0;
+            bottom:0;
+            font-size:15px;
+            font-weight:bold;
+            text-shadow:1px 3px 3px #FFF;
+            cursor:pointer;
+
+            &:hover{
+                text-shadow:2px 4px 2px #CCC000;
+            }
+        }
+        
+    }
+    
+}
+}
+}
+    .partition{
+    height:2px;
+    background-color:#FFF;
+    background:linear-gradient(145deg , #FF0000, #000, #5f7fd8);
+    box-shadow:3px 3px 5px #FFF;
+
+    }
 `;

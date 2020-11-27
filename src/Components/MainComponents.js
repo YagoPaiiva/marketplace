@@ -9,14 +9,17 @@ export const PageContainer = styled.div`
 `;
 
 export const PageTitle = styled.h1`
-    font-size: 30px;
+    font-size: 40px;
+    text-shadow:1px 2px 3px #000;
     color:#5f7fd8;
     justify-content: center;
     text-align: center;
-    margin-bottom:0;
+    margin-bottom:20px;
 `;
 
-export const PageBody =styled.div``;
+export const PageBody =styled.div`
+
+`;
 
 export const ErrorMessage = styled.div`
     margin:10px 0px;

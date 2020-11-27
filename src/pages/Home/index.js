@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { PageArea, SearchArea} from './Styled';
 import UseApi from '../../helpers/Api';
 import { Link } from 'react-router-dom';
-import { PageContainer } from '../../Components/MainComponents'
+import { PageContainer, PageTitle,PageBody } from '../../Components/MainComponents'
 
 
 
@@ -16,9 +16,10 @@ const Page =()=>{
              const getCategories = async()=>{
 
                  const sCategory = await api.getCategories();
-                
+                 console.log(sCategory);
                  setCategory(sCategory);
                 }
+                
                 getCategories();
         },[])
 
@@ -27,12 +28,13 @@ const Page =()=>{
 
                 const json = await api.getAds({
                     sort:'desc',
-                    limit:8,
+                    limit:2,
                 });
-                setAdList(json.title)
+                setAdList(json);
             }
             getRecentAds();
         },[])
+
 
 
 return (<>
@@ -50,10 +52,11 @@ return (<>
                     ></input>
                         <select name="Category">
                             {category.map((value, index)=> 
+                                
                                 <option
                                     key={index}
-                                    value={value.Category}
-                                >{value.Category}</option>
+                                    value={value.category}
+                                >{value.category}</option>
                             )}
                         </select>
                     <button>Pesquisar</button>
@@ -62,8 +65,8 @@ return (<>
 
             <div className="categoryList">
                     {category.map((value, index)=>
-                    <Link key={index} to={`/ads?cat=${value.slug}`} className="categoryItem">
-                        <p>{value.Category}</p>
+                    <Link key={index} to={`/ads?cat=${value.category}`} className="categoryItem">
+                        <p>{value.category}</p>
                     </Link>
                     )}
             </div>
@@ -71,12 +74,33 @@ return (<>
         </PageContainer>
     </SearchArea>
 
-    <PageContainer>
-        <PageArea>
-            ...
-        </PageArea>
-    </PageContainer>
-
+<PageArea>
+                <PageTitle>Ultimas Notícias</PageTitle>
+    <PageBody>
+        <div className="BoxPage">
+            <form>
+                    {adList.map((value, index)=>
+                <div key={index} className="area">
+                    <div className="area--img">
+                            <img src={value.url_imgs.split(',')[0]}></img>
+                    </div>
+                    <div className="area--text">
+                        <div className="area--title">{value.title}</div>
+                        <div className ="partition"></div>
+                            <div className="area--news">
+                                   <p>{value.news}</p> 
+                            </div>
+                            <div className="area--author">
+                                <small>{value.name}</small>
+                                <button>Ir para Notícia...</button>
+                        </div>
+                    </div> 
+                </div>
+                    )}
+            </form>
+        </div>
+    </PageBody>
+</PageArea>
 </>
 )
 }

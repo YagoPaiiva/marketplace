@@ -12,8 +12,9 @@ import RegisterNew from './pages/RegisterNews';
 
 
 export default ()=>{
+
     return <Switch>
-        <RouteHandler exact path="/">
+        <RouteHandler  exact path="/">
             <Home />
         </RouteHandler>
 
@@ -21,15 +22,15 @@ export default ()=>{
            <About />
         </RouteHandler>
 
-        <RouteHandler private exact path="/Signin">
+        <RouteHandler  exact path="/Signin">
             <SignIn /> 
         </RouteHandler>
 
-        <RouteHandler private exact path="/signup">
+        <RouteHandler exact path="/signup">
             <SingUp />
         </RouteHandler>
-
-        <RouteHandler  exact path="/post-news-ad">
+        
+        <RouteHandler  authorize exact path="/post-news-ad">
             <RegisterNew />
         </RouteHandler>
 

@@ -36,8 +36,8 @@ const Page =()=>{
                 events.dispatch({
                     type:'SET_NAME',
                     payload:{
-                        name:json.Fullname,
-                        id:json.id
+                        name:json.json[0].Fullname,
+                        id:json.json.id_account
                     },
                 
                 });
