@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { PageArea, SearchArea} from './Styled';
 import UseApi from '../../helpers/Api';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { PageContainer, PageTitle,PageBody } from '../../Components/MainComponents'
 
 
@@ -9,6 +10,7 @@ import { PageContainer, PageTitle,PageBody } from '../../Components/MainComponen
 const Page =()=>{
 
         const api = UseApi();
+        const dispatch = useDispatch();
         const [category, setCategory]=useState([]);
         const [adList, setAdList]=useState([]);
 
@@ -16,7 +18,6 @@ const Page =()=>{
              const getCategories = async()=>{
 
                  const sCategory = await api.getCategories();
-                 console.log(sCategory);
                  setCategory(sCategory);
                 }
                 
@@ -34,8 +35,6 @@ const Page =()=>{
             }
             getRecentAds();
         },[])
-
-
 
 return (<>
 
@@ -65,8 +64,13 @@ return (<>
 
             <div className="categoryList">
                     {category.map((value, index)=>
-                    <Link key={index} to={`/ads?cat=${value.category}`} className="categoryItem">
-                        <p>{value.category}</p>
+                    
+                    <Link 
+                    key={index}
+                    to={`/ads?cat=${value.category}`} 
+                    className="categoryItem">
+                    <p>{value.category}</p>
+                    
                     </Link>
                     )}
             </div>
@@ -92,7 +96,10 @@ return (<>
                             </div>
                             <div className="area--author">
                                 <small>{value.name}</small>
-                                <button>Ir para Notícia...</button>
+                                <Link
+                                name="q" 
+                                className="Link" 
+                                to={`/news?${value.id_news}`}>Ir para Notícia...</Link>
                         </div>
                     </div> 
                 </div>

@@ -37,7 +37,7 @@ const Page =()=>{
                     type:'SET_NAME',
                     payload:{
                         name:json.json[0].Fullname,
-                        id:json.json.id_account
+                        id:json.json.id_account,
                     },
                 
                 });

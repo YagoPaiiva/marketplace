@@ -2,6 +2,8 @@ import React from 'react';
 import {Switch } from 'react-router-dom'
 import RouteHandler from './Components/RouterHandler';
 
+import Ads from './pages/ads';
+import News from './pages/News';
 import Home from './pages/Home'
 import About from './pages/About'
 import SignIn from './pages/SingIn'
@@ -11,7 +13,7 @@ import RegisterNew from './pages/RegisterNews';
 
 
 
-export default ()=>{
+export default () =>{
 
     return <Switch>
         <RouteHandler  exact path="/">
@@ -22,16 +24,24 @@ export default ()=>{
            <About />
         </RouteHandler>
 
-        <RouteHandler  exact path="/Signin">
+        <RouteHandler  loggedAuthorize exact path="/Signin">
             <SignIn /> 
         </RouteHandler>
 
-        <RouteHandler exact path="/signup">
+        <RouteHandler loggedAuthorize exact path="/signup">
             <SingUp />
         </RouteHandler>
         
         <RouteHandler  authorize exact path="/post-news-ad">
             <RegisterNew />
+        </RouteHandler>
+
+        <RouteHandler exact path = "/ads">
+            <Ads />
+        </RouteHandler>
+
+        <RouteHandler exact path = "/news">
+            <News />
         </RouteHandler>
 
         <RouteHandler>

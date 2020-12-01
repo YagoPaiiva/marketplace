@@ -113,7 +113,7 @@ export const PageArea = styled.div`
         min-height:260px;
         text-align: center;
         margin:10px auto 10px auto;
-        background-color:rgba(0, 0, 0, 0.3);
+        background-color:rgba(0, 0, 0, 0.235);
         border:2px solid #CCC;
         border-radius:5px;
         
@@ -135,7 +135,7 @@ export const PageArea = styled.div`
         .area--title{
             font-size:24px;
             margin:5px auto 10px;
-            color:#5f7fd8;
+            color:#000;
             text-shadow:1px 5px 13px #FFF;
             font-weight:bold;
         }
@@ -159,7 +159,7 @@ export const PageArea = styled.div`
 
         }
         
-        button{
+        .Link{
             position:absolute;
             left:0px;
             bottom:0;
@@ -199,9 +199,8 @@ export const PageArea = styled.div`
 }
 }
     .partition{
-    height:2px;
+    height:0.5px;
     background-color:#FFF;
-    background:linear-gradient(145deg , #FF0000, #000, #5f7fd8);
     box-shadow:3px 3px 5px #FFF;
 
     }
